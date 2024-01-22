@@ -47,25 +47,25 @@ void rotr_funct(stack_t **top, unsigned int line_number)
 {
 	stack_t *last, *secondLast;
 
-    (void)top;
-    (void)line_number;
+	(void)top;
+	(void)line_number;
 
-    last = param.top;
-    secondLast = param.top;
+	last = param.top;
+	secondLast = param.top;
 
-    if (!last || !last->next)
-        return;
+	if (!last || !last->next)
+		return;
 
-    while (last->next)
-        last = last->next;
+	while (last->next)
+		last = last->next;
 
-    secondLast = last->prev;
-    secondLast->next = NULL;
+	secondLast = last->prev;
+	secondLast->next = NULL;
 
-    last->prev = NULL;
-    last->next = param.top;
-    param.top->prev = last;
-    param.top = last;
+	last->prev = NULL;
+	last->next = param.top;
+	param.top->prev = last;
+	param.top = last;
 }
 
 

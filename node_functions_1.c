@@ -109,24 +109,24 @@ void sub_funct(stack_t **top, unsigned int line_number)
 {
 	stack_t *probe, *temp;
 
-    (void)top;
-    (void)line_number;
+	(void)top;
+	(void)line_number;
 
-    probe = param.top;
+	probe = param.top;
 
-    if (!probe || !probe->next)
-    {
-        fprintf(stderr, "L%d: can't sub, stack too short\n", line_number);
-        exit(EXIT_FAILURE);
-    }
-    else
-    {
-        temp = param.top;
-        param.top = param.top->next;
-        param.top->n -= temp->n;
-        if (param.top)
-            param.top->prev = NULL;
-        free(temp);
+	if (!probe || !probe->next)
+	{
+		fprintf(stderr, "L%d: can't sub, stack too short\n", line_number);
+		exit(EXIT_FAILURE);
+	}
+	else
+	{
+		temp = param.top;
+		param.top = param.top->next;
+		param.top->n -= temp->n;
+		if (param.top)
+			param.top->prev = NULL;
+		free(temp);
 	}
 }
 
